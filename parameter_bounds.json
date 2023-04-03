@@ -1,0 +1,112 @@
+{
+  "S<sub>0</sub> [mm]": {
+    "lower_bound": 0.5,
+    "upper_bound": 500.0,
+    "description": "Initial soil moisture"
+  },
+  "SN<sub>0</sub> [mm]": {
+    "lower_bound": 0.0,
+    "upper_bound": 200.0,
+    "description": "Inital snow cover"
+  },
+  "S<sub>max</sub> [mm]": {
+    "lower_bound": 100.0,
+    "upper_bound": 500.0,
+    "description": "Maximum soil moisture"
+  },
+  "S<sub>min</sub> [mm]": {
+    "lower_bound": 0.5,
+    "upper_bound": 50,
+    "description": "Minimum soil moisture"
+  },
+  "x<sub>min</sub> [-]": {
+    "lower_bound": 0.01,
+    "upper_bound": 0.99,
+    "description": "Defines slope of the soil moisture function"
+  },
+  "S<sub>lim</sub> [-]": {
+    "lower_bound": 0.01,
+    "upper_bound": 0.99,
+    "description": "Defines breakpoint of the ET function"
+  },
+  "x<sub>et</sub> [-]": {
+    "lower_bound": 0.01,
+    "upper_bound": 0.99,
+    "description": "Defines breakpoint of the ET function"
+  },
+  "T<sub>CRIT</sub> [C]": {
+    "lower_bound": -2.0,
+    "upper_bound": 2.0,
+    "description": "Temperature above which snow starts to melt"
+  },
+  "T<sub>Low</sub> [C]": {
+    "lower_bound": -10.0,
+    "upper_bound": 0.0,
+    "description": "Lower limit of the interval for precipitation division"
+  },
+  "T<sub>Upp</sub> [C]": {
+    "lower_bound": 0.01,
+    "upper_bound": 10.0,
+    "description": "Upper limit of the interval for precipitation division"
+  },
+  "Q<sub>b,max</sub> [mm]": {
+    "lower_bound": 0.001,
+    "upper_bound": 100.0,
+    "description": "Maximum baseflow value"
+  },
+  "Q<sub>b,min</sub> [-]": {
+    "lower_bound": 0.0001,
+    "upper_bound": 0.999,
+    "description": "Defines breakpoint of the baseflow function"
+  },
+  "S<sub>b,lim</sub> [-]": {
+    "lower_bound": 0.01,
+    "upper_bound": 0.99,
+    "description": "Defines breakpoint of the baseflow function"
+  },
+  "m<sub>s</sub> [-]": {
+    "lower_bound": 0.5,
+    "upper_bound": 10.0,
+    "description": "Shape parameter for surface flow unit hydrograph"
+  },
+  "m<sub>g</sub> [-]": {
+    "lower_bound": 0.5,
+    "upper_bound": 10.0,
+    "description": "Shape parameter for subsurface flow unit hydrograph"
+  },
+  "t<sub>s</sub> [-]": {
+    "lower_bound": 0.25,
+    "upper_bound": 10.0,
+    "description": "Culmination lag-time of surface flow"
+  },
+  "t<sub>g</sub> [-]": {
+    "lower_bound": 0.5,
+    "upper_bound": 10.0,
+    "description": "Culmination lag-time of subsurface flow"
+  },
+  "k<sub>e</sub> [-]": {
+    "lower_bound": 1.0,
+    "upper_bound": 10.0,
+    "description": "Hydrological losses parameter"
+  },
+  "k<sub>s</sub> [-]": {
+    "lower_bound": 0.01,
+    "upper_bound": 0.99,
+    "description": "Surface and subsurface flow division parameter"
+  },
+  "k<sub>sn</sub> [mm/C/day]": {
+    "lower_bound": 0.09,
+    "upper_bound": 13.7,
+    "description": "Snowmelt rate"
+  },
+  "k<sub>r</sub> [-]": {
+    "lower_bound": 0.01,
+    "upper_bound": 0.99,
+    "description": "Correction of k<sub>s</sub> during winter"
+  },
+  "Beta [-]": {
+    "lower_bound": 0.0,
+    "upper_bound": 10.0,
+    "description": "Exponent of the baseflow function"
+  }
+}
