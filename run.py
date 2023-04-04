@@ -90,27 +90,27 @@ if __name__ == "__main__":
     crit = 0.0
     cnt = 0
 
-    try:
-        while True:
-            params, crit = next(de_algorithm)
-            if cnt % 1 == 0:
-                print(f"Generation no. {cnt},\tNSE: {crit}")
-            cnt += 1
-    except StopIteration:
-        print("Calibration ended.")
-        # Model setup with validation data
-        model_val = LWBM(
-            prec=validation_data["Prec"].values,
-            temp=validation_data["Temp"].values,
-            evap=validation_data["PET"].values,
-            obs=validation_data["Flow_o"].values,
-        )
+    for cnt, res in enumerate(de_algorithm):
+        params, crit = res
+        if cnt % 1 == 0:
+            print(f"Generation no. {cnt},\tNSE: {crit}")
 
-        objective_functions = ObjectiveFunctions(
-            model=model_val, observed_data=model_val.obs
-        )
-        val_nse = objective_functions.nse(params)
-        print(f"Validation objective function: {val_nse}")
+    print("Calibration ended.")
+
+    # Model setup with validation data
+    model_val = LWBM(
+        prec=validation_data["Prec"].values,
+        temp=validation_data["Temp"].values,
+        evap=validation_data["PET"].values,
+        obs=validation_data["Flow_o"].values,
+    )
+
+    objective_functions = ObjectiveFunctions(
+        model=model_val, observed_data=model_val.obs
+    )
+    # Objective function evaluation for validation data
+    val_nse = objective_functions.nse(params)
+    print(f"Validation objective function: {val_nse}")
 
     # --- EXPORT RESULTS ---+
 
@@ -120,4 +120,6 @@ if __name__ == "__main__":
     with pd.ExcelWriter("results.xlsx") as writer:
         calibration_data.to_excel(writer, sheet_name="Calibration", index=True)
         validation_data.to_excel(writer, sheet_name="Validation", index=True)
+
+    # Optimised parameters export
     np.savetxt("parameters.csv", params, delimiter=",")
